@@ -22,12 +22,6 @@ public class ShipStats : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public float GetAcceleration()
     {
         return acceleration;

@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     ShipStats stats;
     public ParticleSystem particle;
 
+    bool isDocking = false;
     bool hasGrabbed = false;
     public GameObject grabbedWreckage = null;
     public GameObject grabbedPart = null;
@@ -25,7 +26,7 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
         //If not grabbed wreckage, enable controls
-        if (!grabbedWreckage)
+        if (!grabbedWreckage && !isDocking)
         {
             if (Input.GetButton("Thrust"))
             {
@@ -114,8 +115,11 @@ public class PlayerController : MonoBehaviour {
     IEnumerator Dock()
     {
         //Add drill/ other animation
+        isDocking = true;
+        yield return new WaitForSeconds(2);
         rigidBody.velocity = Vector2.zero;
         rigidBody.angularVelocity = 0.0f;
+        isDocking = false;
         yield return null;
     }
 
@@ -130,5 +134,23 @@ public class PlayerController : MonoBehaviour {
         }
 
         grabbedWreckage = null;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject GO = collision.gameObject;
+
+        if(GO.tag == "CollectionPoint")
+        {
+            if(grabbedPart)
+            {
+                //Add part points
+                StartCoroutine(Dock());
+                stats.SetScore(GO.GetComponent<CollectionPoint>().GetValue(grabbedPart.tag));
+                Destroy(grabbedPart);
+                grabbedPart = null;
+                hasGrabbed = false;
+            }
+        }
     }
 }
