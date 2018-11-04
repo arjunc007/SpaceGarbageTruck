@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     float bulletSpeed = 30f;
     [SerializeField]
-    AudioClip bulletSound, engineIdle, engineRunning;
+    AudioClip bulletSound, engineIdle, engineRunning, pickupSound;
 
     [SerializeField]
     Transform leftGun, rightGun;
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour {
     void GrabObject()
     {
         //If already has grabbed something, release it
-        if(grabbedWreckage)
+        if (grabbedWreckage)
         {
             Transform t = grabbedWreckage.GetComponent<WreckageController>().StopMine();
             //If grabbed something, call grabpart, otherwise set hasgrabbed to false 
@@ -116,22 +116,30 @@ public class PlayerController : MonoBehaviour {
 
             grabbedWreckage = null;
             return;
-        } else if (grabbedPart)
+        }
+        else if (grabbedPart)
         {
             grabbedPart.transform.parent = null;
             grabbedPart.GetComponent<Rigidbody2D>().simulated = true;
             grabbedPart = null;
             hasGrabbed = false;
+            return;
         }
-
+        
         Collider2D wreckage = Physics2D.OverlapCircle(transform.position, detectionRadius, LayerMask.GetMask("Wreckage"));
-        if(wreckage && !hasGrabbed)
+        Collider2D part = Physics2D.OverlapCircle(transform.position, detectionRadius, LayerMask.GetMask("Part"));
+        if (wreckage)
         {
             //Attach player to wreckage
             hasGrabbed = true;
             grabbedWreckage = wreckage.gameObject;
             grabbedWreckage.GetComponent<WreckageController>().StartMine();
             StartCoroutine(Dock());
+        }
+        else if(part)
+        {
+            //Pick up part
+            GrabPart(part.transform);
         }
     }
 
@@ -151,9 +159,11 @@ public class PlayerController : MonoBehaviour {
         if (part)
         {
             grabbedPart = part.gameObject;
+            grabbedPart.GetComponent<Rigidbody2D>().simulated = false;
             grabbedPart.transform.parent = transform;
             grabbedPart.transform.localPosition = new Vector3(0, 0.1f, 0);
             grabbedPart.GetComponent<Collider2D>().isTrigger = false;
+            AudioSource.PlayClipAtPoint(pickupSound, transform.position);
         }
 
         grabbedWreckage = null;
