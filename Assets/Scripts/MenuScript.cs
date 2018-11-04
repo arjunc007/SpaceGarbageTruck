@@ -13,14 +13,19 @@ public class MenuScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetButtonDown("Shoot"))
+        if (Input.GetButtonDown("Shoot_KB") || Input.GetButtonDown("Shoot_JS"))
         {
             SceneManager.LoadScene(1);
         }
 
-        else if (Input.GetButtonDown("Grab"))
+        else if (Input.GetButtonDown("Grab_KB") || Input.GetButtonDown("Grab_KB"))
         {
             Application.Quit();
+        }
+
+        else if (Input.GetButtonDown("Thrust_KB") || Input.GetButtonDown("Thrust_KB"))
+        {
+            SceneManager.LoadScene(2);
         }
 	}
 }

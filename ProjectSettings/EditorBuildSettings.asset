@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Test scene.unity
     guid: 21369d839c7e3934485fef1013610cef
+  - enabled: 1
+    path: Assets/Multiplayer.unity
+    guid: 0ae2000d188174f49a12a261d5ad7bb5
   m_configObjects: {}
