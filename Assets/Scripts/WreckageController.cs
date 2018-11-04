@@ -9,13 +9,13 @@ public class WreckageController : MonoBehaviour {
     float rotationSpeed = 1.0f;
     Image loader = null;
     public float mineTime = 8.0f;
-    AudioSource audio;
+    AudioSource audioSource;
 
     float mineTimer = 0.0f;
 
 	// Use this for initialization
 	void Start () {
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         loader = GetComponentInChildren<Image>();
         loader.gameObject.SetActive(false);
 
@@ -61,14 +61,14 @@ public class WreckageController : MonoBehaviour {
     public void StartMine()
     {
         loader.gameObject.SetActive(true);
-        audio.Play();
+        audioSource.Play();
         mineTimer = 0;
     }
 
     public Transform StopMine()
     {
         loader.gameObject.SetActive(false);
-        audio.Stop();
+        audioSource.Stop();
 
         //Get number of children
         int numberOfParts = transform.childCount - 1;
