@@ -116,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1435351450265264}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -4.61, z: 0}
+  m_LocalPosition: {x: 0, y: -4.61, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4719172626937094}
@@ -373,6 +373,7 @@ MonoBehaviour:
   GrabButton: Grab_JS
   ShootButton: Shoot_JS
   particle: {fileID: 198786883026882734}
+  explosion: {fileID: 0}
 --- !u!198 &198786883026882734
 ParticleSystem:
   m_ObjectHideFlags: 1
