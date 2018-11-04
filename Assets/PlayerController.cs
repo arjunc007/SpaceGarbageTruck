@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
     ShipStats stats;
     bool engineOn = false;
     public ParticleSystem particle;
+    public GameObject explosion;
 
     bool isDocking = false;
     bool hasGrabbed = false;
@@ -190,5 +191,27 @@ public class PlayerController : MonoBehaviour {
                 hasGrabbed = false;
             }
         }
+        else if(GO.tag == "Bullet")
+        {
+            stats.SetShipStrength(-10);
+            //Show sparks at hitpoint
+
+            if(stats.GetShipStrength() < 0)
+            {
+                //Play Explosion
+                StartCoroutine(Explode());
+            }
+            Destroy(GO);
+        }
+    }
+
+    IEnumerator Explode()
+    {
+        GameObject exp = Instantiate(explosion, transform);
+        yield return new WaitForSeconds(2);
+        Destroy(exp);
+        //Reset to start
+
+
     }
 }

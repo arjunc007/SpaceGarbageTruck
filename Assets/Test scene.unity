@@ -1414,7 +1414,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1220631947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000004313886, y: -0.00000027567148, z: -10}
+  m_LocalPosition: {x: 0.000004298985, y: -0.00000027567148, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 226357208}
@@ -1951,7 +1951,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1992746672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000004313886, y: -0.00000027567148, z: -10}
+  m_LocalPosition: {x: 0.000004298985, y: -0.00000027567148, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2233,6 +2233,26 @@ Prefab:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1769206883}
+    - target: {fileID: 114904283850794566, guid: 6b1ec87ab893e5249918ae29c5c25fc9,
+        type: 2}
+      propertyPath: ThrustButton
+      value: Thrust_KB
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904283850794566, guid: 6b1ec87ab893e5249918ae29c5c25fc9,
+        type: 2}
+      propertyPath: TurnButton
+      value: Turn_KB
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904283850794566, guid: 6b1ec87ab893e5249918ae29c5c25fc9,
+        type: 2}
+      propertyPath: GrabButton
+      value: Grab_KB
+      objectReference: {fileID: 0}
+    - target: {fileID: 114904283850794566, guid: 6b1ec87ab893e5249918ae29c5c25fc9,
+        type: 2}
+      propertyPath: ShootButton
+      value: Shoot_KB
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b1ec87ab893e5249918ae29c5c25fc9, type: 2}
   m_IsPrefabAsset: 0

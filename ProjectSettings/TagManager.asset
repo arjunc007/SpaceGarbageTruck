@@ -8,6 +8,7 @@ TagManager:
   - Large Debris
   - Medium Debris
   - Small Debris
+  - Bullet
   layers:
   - Default
   - TransparentFX
