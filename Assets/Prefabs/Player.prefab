@@ -11,6 +11,21 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1803289655698518}
   m_IsPrefabAsset: 1
+--- !u!1 &1004560863877362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4494743121422954}
+  m_Layer: 0
+  m_Name: Right_Blaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1331230876445472
 GameObject:
   m_ObjectHideFlags: 0
@@ -23,6 +38,21 @@ GameObject:
   - component: {fileID: 199391331610371286}
   m_Layer: 0
   m_Name: Thruster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1613348893148526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4209400971435016}
+  m_Layer: 0
+  m_Name: Left_Blaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,6 +92,32 @@ Transform:
   m_Father: {fileID: 4635401826398938}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!4 &4209400971435016
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1613348893148526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.5, y: 4.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4635401826398938}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4494743121422954
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1004560863877362}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.5, y: 4.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4635401826398938}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4635401826398938
 Transform:
   m_ObjectHideFlags: 1
@@ -73,6 +129,8 @@ Transform:
   m_LocalScale: {x: 0.025, y: 0.025, z: 1}
   m_Children:
   - {fileID: 4101790775502536}
+  - {fileID: 4209400971435016}
+  - {fileID: 4494743121422954}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -242,9 +300,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 0.4
+  bulletObject: {fileID: 1313815784045606, guid: 7715ed657baea0547b63f577fa453a78,
+    type: 2}
+  bulletSpeed: 30
+  bulletSound: {fileID: 8300000, guid: 9b651c3bdba4d584ca09ba5ab6ede804, type: 3}
+  engineIdle: {fileID: 8300000, guid: 518d04f7f81c5004db57d6fd1fe04c38, type: 3}
+  engineRunning: {fileID: 8300000, guid: 3025211d8395747459439182255b1d98, type: 3}
+  pickupSound: {fileID: 8300000, guid: ff6e82e341ae19742b86527c20ececa8, type: 3}
+  leftGun: {fileID: 4209400971435016}
+  rightGun: {fileID: 4494743121422954}
+  scoreText: {fileID: 0}
   particle: {fileID: 198871156713136546}
-  grabbedWreckage: {fileID: 0}
-  grabbedPart: {fileID: 0}
 --- !u!198 &198871156713136546
 ParticleSystem:
   m_ObjectHideFlags: 1

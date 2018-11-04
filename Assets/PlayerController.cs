@@ -20,9 +20,14 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     Text scoreText;
 
+    //Input buttons
+    [SerializeField]
+    string ThrustButton, TurnButton, GrabButton, ShootButton;
+
     Rigidbody2D rigidBody;
     AudioSource audioSource;
     ShipStats stats;
+    bool engineOn = false;
     public ParticleSystem particle;
 
     bool isDocking = false;
@@ -45,35 +50,34 @@ public class PlayerController : MonoBehaviour {
         //If not grabbed wreckage, enable controls
         if (!grabbedWreckage && !isDocking)
         {
-            if (Input.GetButton("Thrust"))
+            float vel = Input.GetAxis(ThrustButton);
+            rigidBody.AddRelativeForce(new Vector2(0, vel * stats.GetAcceleration()));
+            if (vel != 0 && !engineOn)
             {
-                rigidBody.AddRelativeForce(new Vector2(0, Input.GetAxis("Thrust") * stats.GetAcceleration()));
-                if (Input.GetButtonDown("Thrust"))
-                {
-                    audioSource.clip = engineRunning;
-                    audioSource.Play();
-                    particle.Play();
-                }
+                //Turn Engine on
+                audioSource.clip = engineRunning;
+                audioSource.Play();
+                particle.Play();
+                engineOn = true;
             }
-            if (Input.GetButtonUp("Thrust"))
+            else if(vel == 0 && engineOn)
             {
+                //Turn engine off
                 audioSource.clip = engineIdle;
                 audioSource.Play();
                 particle.Stop();
+                engineOn = false;
             }
-
-            if (Input.GetButton("Turn"))
-            {
-                transform.Rotate(0, 0, -Input.GetAxis("Turn") * stats.GetTurningSpeed());
-            }
+            
+            transform.Rotate(0, 0, -Input.GetAxis(TurnButton) * stats.GetTurningSpeed());
         }
         
-        if(Input.GetButtonDown("Grab"))
+        if(Input.GetButtonDown(GrabButton))
         {
             GrabObject();
         }
 
-        if(Input.GetButtonDown("Shoot"))
+        if(Input.GetButtonDown(ShootButton))
         {
             Shoot();
         }
@@ -147,9 +151,9 @@ public class PlayerController : MonoBehaviour {
     {
         //Add drill/ other animation
         isDocking = true;
-        yield return new WaitForSeconds(2);
         rigidBody.velocity = Vector2.zero;
         rigidBody.angularVelocity = 0.0f;
+        yield return new WaitForSeconds(2);
         isDocking = false;
         yield return null;
     }
