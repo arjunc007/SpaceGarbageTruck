@@ -665,6 +665,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &484647750
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 484647742}
+  m_Enabled: 1
 --- !u!1 &510365630
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,7 +2088,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1469655967}
   - component: {fileID: 1469655966}
-  - component: {fileID: 1469655965}
   - component: {fileID: 1469655964}
   m_Layer: 11
   m_Name: P2 Cam
@@ -2126,13 +2132,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!81 &1469655965
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1469655962}
-  m_Enabled: 1
 --- !u!20 &1469655966
 Camera:
   m_ObjectHideFlags: 0
@@ -2606,7 +2605,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1992746675}
   - component: {fileID: 1992746674}
-  - component: {fileID: 1992746673}
   - component: {fileID: 1992746676}
   m_Layer: 10
   m_Name: P1 Cam
@@ -2615,13 +2613,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1992746673
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1992746672}
-  m_Enabled: 1
 --- !u!20 &1992746674
 Camera:
   m_ObjectHideFlags: 0

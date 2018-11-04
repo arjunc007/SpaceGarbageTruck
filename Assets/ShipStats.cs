@@ -12,6 +12,7 @@ public class ShipStats : MonoBehaviour
     float maxSpeed = 10f;
     float laserStrength = 1;
     float beamLength = 1;
+    [SerializeField]
     int shipStrength = 100;
     bool carryingSalvage = false;
     public int score = 0;
