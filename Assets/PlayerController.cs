@@ -7,7 +7,18 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     float detectionRadius = 0.4f;
 
+    [SerializeField]
+    GameObject bulletObject;
+    [SerializeField]
+    float bulletSpeed = 30f;
+    [SerializeField]
+    AudioClip bulletSound, engineIdle, engineRunning;
+
+    [SerializeField]
+    Transform leftGun, rightGun;
+
     Rigidbody2D rigidBody;
+    AudioSource audioSource;
     ShipStats stats;
     public ParticleSystem particle;
 
@@ -20,6 +31,9 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
         rigidBody = GetComponent<Rigidbody2D>();
         stats = GetComponent<ShipStats>();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = engineRunning;
+        audioSource.Play();
     }
 	
 	// Update is called once per frame
@@ -33,13 +47,13 @@ public class PlayerController : MonoBehaviour {
                 rigidBody.AddRelativeForce(new Vector2(0, Input.GetAxis("Thrust") * stats.GetAcceleration()));
                 if (Input.GetButtonDown("Thrust"))
                 {
-                    GetComponent<AudioSource>().Play();
+                    audioSource.clip = engineRunning;
                     particle.Play();
                 }
             }
             if (Input.GetButtonUp("Thrust"))
             {
-                GetComponent<AudioSource>().Stop();
+                audioSource.clip = engineIdle;
                 particle.Stop();
             }
 
@@ -73,6 +87,9 @@ public class PlayerController : MonoBehaviour {
         }
 
         //Normal shooting
+        AudioSource.PlayClipAtPoint(bulletSound, transform.position);
+        GameObject bullet = Instantiate(bulletObject, leftGun.position, transform.rotation);
+        bullet = Instantiate(bulletObject, rightGun.position, transform.rotation);
 
     }
 
