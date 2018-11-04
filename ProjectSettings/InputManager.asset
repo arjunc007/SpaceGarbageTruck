@@ -9,8 +9,8 @@ InputManager:
     m_Name: Turn
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: left
-    positiveButton: right
+    negativeButton: joystick button 4
+    positiveButton: joystick button 5
     altNegativeButton: a
     altPositiveButton: d
     gravity: 0
@@ -19,15 +19,15 @@ InputManager:
     snap: 1
     invert: 0
     type: 0
-    axis: 0
+    axis: 6
     joyNum: 0
   - serializedVersion: 3
     m_Name: Thrust
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
-    altNegativeButton: s
+    negativeButton: 
+    positiveButton: joystick button 3
+    altNegativeButton: 
     altPositiveButton: w
     gravity: 0
     dead: 0.001
@@ -35,7 +35,7 @@ InputManager:
     snap: 1
     invert: 0
     type: 0
-    axis: 0
+    axis: 1
     joyNum: 0
   - serializedVersion: 3
     m_Name: Shoot
@@ -44,7 +44,7 @@ InputManager:
     negativeButton: 
     positiveButton: left ctrl
     altNegativeButton: 
-    altPositiveButton: mouse 0
+    altPositiveButton: joystick button 0
     gravity: 0
     dead: 0.001
     sensitivity: 1000
@@ -60,7 +60,7 @@ InputManager:
     negativeButton: 
     positiveButton: left alt
     altNegativeButton: 
-    altPositiveButton: mouse 1
+    altPositiveButton: joystick button 1
     gravity: 0
     dead: 0.001
     sensitivity: 1000
