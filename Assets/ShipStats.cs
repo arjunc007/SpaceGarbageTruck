@@ -12,7 +12,7 @@ public class ShipStats : MonoBehaviour
     float maxSpeed = 10f;
     float laserStrength = 1;
     float beamLength = 1;
-    byte shipStrength = 1;
+    int shipStrength = 100;
     bool carryingSalvage = false;
     public int score = 0;
 
@@ -63,11 +63,11 @@ public class ShipStats : MonoBehaviour
         beamLength += inBeamLength;
     }
 
-    public byte GetShipStrength()
+    public int GetShipStrength()
     {
         return shipStrength;
     }
-    public void SetShipStrength(byte inShipStrength)
+    public void SetShipStrength(int inShipStrength)
     {
         shipStrength += inShipStrength;
     }

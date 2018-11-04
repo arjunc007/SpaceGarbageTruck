@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour {
 
-    float speed = 20f;
+    float speed = 15f;
     float life = 3f;
     float startTime;
 
@@ -25,7 +25,7 @@ public class BulletScript : MonoBehaviour {
         speed = s;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player")
         {

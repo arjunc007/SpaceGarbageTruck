@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CollectionPoint
+  - Large Debris
+  - Medium Debris
+  - Small Debris
   layers:
   - Default
   - TransparentFX
@@ -14,7 +18,7 @@ TagManager:
   - 
   - 
   - Wreckage
-  - 
+  - Part
   - 
   - 
   - 

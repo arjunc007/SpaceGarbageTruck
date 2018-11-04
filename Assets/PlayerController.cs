@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour {
         rigidBody = GetComponent<Rigidbody2D>();
         stats = GetComponent<ShipStats>();
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = engineRunning;
+        audioSource.clip = engineIdle;
         audioSource.Play();
     }
 	
@@ -51,12 +51,14 @@ public class PlayerController : MonoBehaviour {
                 if (Input.GetButtonDown("Thrust"))
                 {
                     audioSource.clip = engineRunning;
+                    audioSource.Play();
                     particle.Play();
                 }
             }
             if (Input.GetButtonUp("Thrust"))
             {
                 audioSource.clip = engineIdle;
+                audioSource.Play();
                 particle.Stop();
             }
 
@@ -117,6 +119,7 @@ public class PlayerController : MonoBehaviour {
         } else if (grabbedPart)
         {
             grabbedPart.transform.parent = null;
+            grabbedPart.GetComponent<Rigidbody2D>().simulated = true;
             grabbedPart = null;
             hasGrabbed = false;
         }
