@@ -24,4 +24,15 @@ public class BulletScript : MonoBehaviour {
     {
         speed = s;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            //Damage player
+        }
+
+        //Show sparks and destroy
+        Destroy(gameObject);
+    }
 }

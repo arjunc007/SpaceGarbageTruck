@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField]
     Transform leftGun, rightGun;
+    [SerializeField]
+    Text scoreText;
 
     Rigidbody2D rigidBody;
     AudioSource audioSource;
@@ -24,8 +27,8 @@ public class PlayerController : MonoBehaviour {
 
     bool isDocking = false;
     bool hasGrabbed = false;
-    public GameObject grabbedWreckage = null;
-    public GameObject grabbedPart = null;
+    GameObject grabbedWreckage = null;
+    GameObject grabbedPart = null;
 
 	// Use this for initialization
 	void Start () {
@@ -164,6 +167,7 @@ public class PlayerController : MonoBehaviour {
                 //Add part points
                 StartCoroutine(Dock());
                 stats.SetScore(GO.GetComponent<CollectionPoint>().GetValue(grabbedPart.tag));
+                scoreText.text = stats.GetScore().ToString();
                 Destroy(grabbedPart);
                 grabbedPart = null;
                 hasGrabbed = false;

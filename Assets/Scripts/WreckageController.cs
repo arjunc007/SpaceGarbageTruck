@@ -23,6 +23,8 @@ public class WreckageController : MonoBehaviour {
             if (collider)
                 collider.isTrigger = true;
         }
+
+        rotationSpeed = Random.Range(1, 4);
 	}
 	
 	// Update is called once per frame
