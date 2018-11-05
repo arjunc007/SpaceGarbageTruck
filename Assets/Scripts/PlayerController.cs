@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     GameObject bulletObject;
     [SerializeField]
-    float bulletSpeed = 30f;
+    float bulletSpeed = 15f;
     [SerializeField]
     AudioClip bulletSound, engineIdle, engineRunning, pickupSound;
 
@@ -99,7 +99,12 @@ public class PlayerController : MonoBehaviour {
         //Normal shooting
         AudioSource.PlayClipAtPoint(bulletSound, transform.position);
         GameObject bullet = Instantiate(bulletObject, leftGun.position, transform.rotation);
+        bullet.GetComponent<Rigidbody2D>().velocity = bulletSpeed * transform.up;
+        Destroy(bullet, 2.0f);
+
         bullet = Instantiate(bulletObject, rightGun.position, transform.rotation);
+        bullet.GetComponent<Rigidbody2D>().velocity = bulletSpeed*transform.up;
+        Destroy(bullet, 2.0f);
 
     }
 

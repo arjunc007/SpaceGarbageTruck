@@ -79,6 +79,9 @@ public class WreckageController : MonoBehaviour {
         loader.gameObject.SetActive(false);
         audioSource.Stop();
 
+        loader.color = Color.red;
+        miner = null;
+
         //Get number of children
         int numberOfParts = transform.childCount - 1;
 
@@ -90,19 +93,16 @@ public class WreckageController : MonoBehaviour {
 
             if (loader.fillAmount >= cmp)
             {
+                //If it was the last part, destroy object
+                if (numberOfParts == 1)
+                {
+                    Destroy(gameObject);
+                }
+                //loader.fillAmount = 0;
                 return transform.GetChild(childToReturn);
             }
             childToReturn--;
         }
-
-        if(childToReturn == 0)
-        {
-            Destroy(gameObject);
-        }
-
-        loader.color = Color.red;
-        loader.fillAmount = 0;
-        miner = null;
 
         return null;
     }
