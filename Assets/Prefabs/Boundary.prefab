@@ -283,7 +283,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4890664956466474}
-  - component: {fileID: 114704839096721826}
   m_Layer: 0
   m_Name: Boundary
   m_TagString: Untagged
@@ -528,25 +527,6 @@ Transform:
   m_Father: {fileID: 4890664956466474}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114704839096721826
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1926500108690246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647e061252d8ee94ba3551814015ea94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  topLeft: {fileID: 4494720938429940}
-  topRight: {fileID: 0}
-  bottomLeft: {fileID: 4906012820192442}
-  bottomRight: {fileID: 4980441692694980}
-  asteroidSprites:
-  - {fileID: 21300000, guid: 20746d52f271e054ca2e17af3d03cd33, type: 3}
-  - {fileID: 21300000, guid: b8468cb3738d30946b881f2cb0335c57, type: 3}
-  - {fileID: 21300000, guid: f1547830f7e5b264c9d0e588be872c37, type: 3}
 --- !u!198 &198158686770753050
 ParticleSystem:
   m_ObjectHideFlags: 1

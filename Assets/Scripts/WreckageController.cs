@@ -11,6 +11,8 @@ public class WreckageController : MonoBehaviour {
     public float mineTime = 8.0f;
     AudioSource audioSource;
 
+    GameObject miner = null;
+
     float mineTimer = 0.0f;
 
 	// Use this for initialization
@@ -40,7 +42,7 @@ public class WreckageController : MonoBehaviour {
 
             if(loader.fillAmount >= 1.0f)
             {
-                GameObject.Find("Player").GetComponent<PlayerController>().GrabPart(StopMine());
+                miner.GetComponent<PlayerController>().GrabPart(StopMine());
             } else if (loader.fillAmount > 0.9f)
             {
                 loader.color = Color.green;
@@ -58,11 +60,18 @@ public class WreckageController : MonoBehaviour {
         }
 	}
 
-    public void StartMine()
+    public bool StartMine(GameObject player)
     {
-        loader.gameObject.SetActive(true);
-        audioSource.Play();
-        mineTimer = 0;
+        if (miner == null)
+        {
+            miner = player;
+            loader.gameObject.SetActive(true);
+            audioSource.Play();
+            mineTimer = 0;
+            return true;
+        }
+        else
+            return false;
     }
 
     public Transform StopMine()
@@ -86,8 +95,14 @@ public class WreckageController : MonoBehaviour {
             childToReturn--;
         }
 
+        if(childToReturn == 0)
+        {
+            Destroy(gameObject);
+        }
+
         loader.color = Color.red;
         loader.fillAmount = 0;
+        miner = null;
 
         return null;
     }

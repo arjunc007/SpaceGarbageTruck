@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour {
 
+    [SerializeField]
+    string MP_scnName = "Multiplayer", SP_scnName = "SinglePlayer";
+
 	// Use this for initialization
 	void Start () {
 		
@@ -15,7 +18,7 @@ public class MenuScript : MonoBehaviour {
     {
         if (Input.GetButtonDown("Shoot_KB") || Input.GetButtonDown("Shoot_JS"))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(SP_scnName);
         }
 
         else if (Input.GetButtonDown("Grab_KB") || Input.GetButtonDown("Grab_KB"))
@@ -25,7 +28,7 @@ public class MenuScript : MonoBehaviour {
 
         else if (Input.GetButtonDown("Thrust_KB") || Input.GetButtonDown("Thrust_KB"))
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(MP_scnName);
         }
 	}
 }

@@ -133,12 +133,12 @@ public class PlayerController : MonoBehaviour {
         
         Collider2D wreckage = Physics2D.OverlapCircle(transform.position, detectionRadius, LayerMask.GetMask("Wreckage"));
         Collider2D part = Physics2D.OverlapCircle(transform.position, detectionRadius, LayerMask.GetMask("Part"));
-        if (wreckage)
+        if (wreckage && wreckage.GetComponent<WreckageController>().StartMine(gameObject))
         {
             //Attach player to wreckage
             hasGrabbed = true;
             grabbedWreckage = wreckage.gameObject;
-            grabbedWreckage.GetComponent<WreckageController>().StartMine();
+            
             StartCoroutine(Dock());
         }
         else if(part)
@@ -189,6 +189,11 @@ public class PlayerController : MonoBehaviour {
                 Destroy(grabbedPart);
                 grabbedPart = null;
                 hasGrabbed = false;
+                //Turn engine off
+                audioSource.clip = engineIdle;
+                audioSource.Play();
+                particle.Stop();
+                engineOn = false;
             }
         }
         else if(GO.tag == "Bullet")
