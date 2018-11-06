@@ -2283,16 +2283,6 @@ Prefab:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1769206883}
-    - target: {fileID: 114904283850794566, guid: 6b1ec87ab893e5249918ae29c5c25fc9,
-        type: 2}
-      propertyPath: explosionSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 02009cccb79c5354fa978a1e96a0a47e, type: 3}
-    - target: {fileID: 114904283850794566, guid: 6b1ec87ab893e5249918ae29c5c25fc9,
-        type: 2}
-      propertyPath: explosion
-      value: 
-      objectReference: {fileID: 100000, guid: 9deacc65945d6e44a85969cf3f2e0bc0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b1ec87ab893e5249918ae29c5c25fc9, type: 2}
   m_IsPrefabAsset: 0

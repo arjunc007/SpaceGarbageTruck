@@ -599,7 +599,9 @@ MonoBehaviour:
   ShootButton: Shoot_KB
   particle: {fileID: 198747700153006446}
   explosion: {fileID: 100000, guid: 9deacc65945d6e44a85969cf3f2e0bc0, type: 2}
+  sparks: {fileID: 1845195673903332, guid: 3b253efd66006ba43bf6c9ad129e611f, type: 2}
   explosionSound: {fileID: 8300000, guid: 02009cccb79c5354fa978a1e96a0a47e, type: 3}
+  hitSound: {fileID: 8300000, guid: d4623dee49eaa9147bf72bc4582d05d0, type: 3}
 --- !u!114 &114777553657347724
 MonoBehaviour:
   m_ObjectHideFlags: 1

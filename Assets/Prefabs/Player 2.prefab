@@ -608,13 +608,15 @@ MonoBehaviour:
   leftGun: {fileID: 4645571565927734}
   rightGun: {fileID: 4712323202597154}
   scoreText: {fileID: 0}
-  ThrustButton: Thrust_JS
-  TurnButton: Turn_JS
-  GrabButton: Grab_JS
-  ShootButton: Shoot_JS
+  ThrustButton: Thrust_KB2
+  TurnButton: Turn_KB2
+  GrabButton: Grab_KB2
+  ShootButton: Shoot_KB2
   particle: {fileID: 198786883026882734}
   explosion: {fileID: 100000, guid: 9deacc65945d6e44a85969cf3f2e0bc0, type: 2}
+  sparks: {fileID: 1845195673903332, guid: 3b253efd66006ba43bf6c9ad129e611f, type: 2}
   explosionSound: {fileID: 8300000, guid: 02009cccb79c5354fa978a1e96a0a47e, type: 3}
+  hitSound: {fileID: 8300000, guid: d4623dee49eaa9147bf72bc4582d05d0, type: 3}
 --- !u!198 &198786883026882734
 ParticleSystem:
   m_ObjectHideFlags: 1

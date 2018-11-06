@@ -106,4 +106,23 @@ public class WreckageController : MonoBehaviour {
 
         return null;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject GO = collision.gameObject;
+
+        if (GO.tag == "Bullet")
+        {
+            //Show sparks at hitpoint
+            //ContactPoint2D[] contacts = new ContactPoint2D[5];
+            //int numContacts = collision.GetContacts(contacts);
+            //if (numContacts > 0)
+            //{
+            //    GameObject p = Instantiate(sparks, contacts[0].point, Quaternion.LookRotation(-contacts[0].normal, Vector2.up));
+            //    Destroy(p, 0.2f);
+            //    audioSource.PlayOneShot(hitSound);
+            //}
+            Destroy(GO);
+        }
+    }
 }
