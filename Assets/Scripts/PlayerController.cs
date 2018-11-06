@@ -29,9 +29,12 @@ public class PlayerController : MonoBehaviour {
     ShipStats stats;
     bool engineOn = false;
     public ParticleSystem particle;
-    public GameObject explosion;
+    public GameObject explosion, sparks;
+    public AudioClip explosionSound, hitSound;
 
-    bool isDocking = false;
+
+    Vector3 startPosition;
+    bool isAnimating = false;
     bool hasGrabbed = false;
     GameObject grabbedWreckage = null;
     GameObject grabbedPart = null;
@@ -43,13 +46,14 @@ public class PlayerController : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = engineIdle;
         audioSource.Play();
+        startPosition = transform.position;
     }
 	
 	// Update is called once per frame
 	void Update () {
 
         //If not grabbed wreckage, enable controls
-        if (!grabbedWreckage && !isDocking)
+        if (!grabbedWreckage && !isAnimating)
         {
             float vel = Input.GetAxis(ThrustButton);
             rigidBody.AddRelativeForce(new Vector2(0, vel * stats.GetAcceleration()));
@@ -156,11 +160,11 @@ public class PlayerController : MonoBehaviour {
     IEnumerator Dock()
     {
         //Add drill/ other animation
-        isDocking = true;
+        isAnimating = true;
         rigidBody.velocity = Vector2.zero;
         rigidBody.angularVelocity = 0.0f;
         yield return new WaitForSeconds(2);
-        isDocking = false;
+        isAnimating = false;
         yield return null;
     }
 
@@ -179,7 +183,7 @@ public class PlayerController : MonoBehaviour {
         grabbedWreckage = null;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject GO = collision.gameObject;
 
@@ -204,7 +208,16 @@ public class PlayerController : MonoBehaviour {
         else if(GO.tag == "Bullet")
         {
             stats.SetShipStrength(-10);
+
             //Show sparks at hitpoint
+            ContactPoint2D[] contacts = new ContactPoint2D[5];
+            int numContacts = collision.GetContacts(contacts);
+            if (numContacts > 0)
+            {
+                GameObject p = Instantiate(sparks, contacts[0].point, Quaternion.LookRotation(-contacts[0].normal, Vector2.up));
+                Destroy(p, 0.2f);
+                audioSource.PlayOneShot(hitSound);
+            }
 
             if(stats.GetShipStrength() < 0)
             {
@@ -217,11 +230,24 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator Explode()
     {
-        GameObject exp = Instantiate(explosion, transform);
-        yield return new WaitForSeconds(2);
-        Destroy(exp);
+        isAnimating = true;
+        GameObject exp = Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(exp, 2f);
+        AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+
+        //Disable renderer, collider
+        Collider2D col = GetComponent<PolygonCollider2D>();
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        col.enabled = false;
+        renderer.enabled = false;
+
         //Reset to start
+        yield return new WaitForSeconds(5); //Time to wait before respawn
+        isAnimating = false;
+        stats.SetShipStrength(100);
+        transform.SetPositionAndRotation(startPosition, Quaternion.identity);
 
-
+        col.enabled = true;
+        renderer.enabled = true;
     }
 }

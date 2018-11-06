@@ -692,7 +692,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 81859281913918522, guid: 35021aa918fac6749823417753f4a2cd, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 35021aa918fac6749823417753f4a2cd, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &510365630
@@ -2033,6 +2034,7 @@ GameObject:
   - component: {fileID: 1992746675}
   - component: {fileID: 1992746674}
   - component: {fileID: 1992746676}
+  - component: {fileID: 1992746673}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2040,6 +2042,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!81 &1992746673
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1992746672}
+  m_Enabled: 1
 --- !u!20 &1992746674
 Camera:
   m_ObjectHideFlags: 0
@@ -2276,29 +2285,14 @@ Prefab:
       objectReference: {fileID: 1769206883}
     - target: {fileID: 114904283850794566, guid: 6b1ec87ab893e5249918ae29c5c25fc9,
         type: 2}
-      propertyPath: ThrustButton
-      value: Thrust_KB
-      objectReference: {fileID: 0}
+      propertyPath: explosionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 02009cccb79c5354fa978a1e96a0a47e, type: 3}
     - target: {fileID: 114904283850794566, guid: 6b1ec87ab893e5249918ae29c5c25fc9,
         type: 2}
-      propertyPath: TurnButton
-      value: Turn_KB
-      objectReference: {fileID: 0}
-    - target: {fileID: 114904283850794566, guid: 6b1ec87ab893e5249918ae29c5c25fc9,
-        type: 2}
-      propertyPath: GrabButton
-      value: Grab_KB
-      objectReference: {fileID: 0}
-    - target: {fileID: 114904283850794566, guid: 6b1ec87ab893e5249918ae29c5c25fc9,
-        type: 2}
-      propertyPath: ShootButton
-      value: Shoot_KB
-      objectReference: {fileID: 0}
-    - target: {fileID: 114904283850794566, guid: 6b1ec87ab893e5249918ae29c5c25fc9,
-        type: 2}
-      propertyPath: bulletSpeed
-      value: 15
-      objectReference: {fileID: 0}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 100000, guid: 9deacc65945d6e44a85969cf3f2e0bc0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b1ec87ab893e5249918ae29c5c25fc9, type: 2}
   m_IsPrefabAsset: 0
