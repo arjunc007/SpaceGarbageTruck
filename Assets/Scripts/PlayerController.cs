@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -51,6 +51,17 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //
+        if(Countdown.endGame)
+        {
+            if(Input.anyKeyDown)
+            {
+                Countdown.endGame = false;
+                SceneManager.LoadScene(0);
+            }
+            return;
+        }
 
         //If not grabbed wreckage, enable controls
         if (!grabbedWreckage && !isAnimating)
@@ -115,6 +126,31 @@ public class PlayerController : MonoBehaviour {
     void GrabObject()
     {
         //If already has grabbed something, release it
+        if (hasGrabbed)
+        {
+            ReleaseGrabbed();
+            return;
+        }
+        
+        Collider2D wreckage = Physics2D.OverlapCircle(transform.position, detectionRadius, LayerMask.GetMask("Wreckage"));
+        Collider2D part = Physics2D.OverlapCircle(transform.position, detectionRadius, LayerMask.GetMask("Part"));
+        if (wreckage && wreckage.GetComponent<WreckageController>().StartMine(gameObject))
+        {
+            //Attach player to wreckage
+            hasGrabbed = true;
+            grabbedWreckage = wreckage.gameObject;
+            
+            StartCoroutine(Dock());
+        }
+        else if(part)
+        {
+            //Pick up part
+            GrabPart(part.transform);
+        }
+    }
+
+    void ReleaseGrabbed()
+    {
         if (grabbedWreckage)
         {
             Transform t = grabbedWreckage.GetComponent<WreckageController>().StopMine();
@@ -138,22 +174,6 @@ public class PlayerController : MonoBehaviour {
             grabbedPart = null;
             hasGrabbed = false;
             return;
-        }
-        
-        Collider2D wreckage = Physics2D.OverlapCircle(transform.position, detectionRadius, LayerMask.GetMask("Wreckage"));
-        Collider2D part = Physics2D.OverlapCircle(transform.position, detectionRadius, LayerMask.GetMask("Part"));
-        if (wreckage && wreckage.GetComponent<WreckageController>().StartMine(gameObject))
-        {
-            //Attach player to wreckage
-            hasGrabbed = true;
-            grabbedWreckage = wreckage.gameObject;
-            
-            StartCoroutine(Dock());
-        }
-        else if(part)
-        {
-            //Pick up part
-            GrabPart(part.transform);
         }
     }
 
@@ -246,6 +266,8 @@ public class PlayerController : MonoBehaviour {
         isAnimating = false;
         stats.SetShipStrength(100);
         transform.SetPositionAndRotation(startPosition, Quaternion.identity);
+        ReleaseGrabbed();
+
 
         col.enabled = true;
         renderer.enabled = true;

@@ -772,7 +772,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Time: 2:00'
+  m_Text: 'Time: 02:00'
 --- !u!222 &522214894
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -810,11 +810,11 @@ RectTransform:
   m_Father: {fileID: 566236193}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 53.53, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 1, y: 1}
 --- !u!1 &566236189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2466,7 +2466,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1469655962}
-  m_LocalRotation: {x: 3.0039823e-25, y: 4.9393265e-21, z: 0.000011122547, w: 1}
+  m_LocalRotation: {x: 3.0460128e-25, y: 5.0084582e-21, z: 0.000011278218, w: 1}
   m_LocalPosition: {x: 2.2952685, y: -0.24603169, z: -10.164828}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3056,7 +3056,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1992746672}
-  m_LocalRotation: {x: 3.0039192e-25, y: 4.9392227e-21, z: 0.0000111223135, w: 1}
+  m_LocalRotation: {x: 3.0459497e-25, y: 5.0083544e-21, z: 0.000011277984, w: 1}
   m_LocalPosition: {x: -2.154731, y: -0.24603161, z: -10.164828}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
