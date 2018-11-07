@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad080d5c8f1b9334eb6431e822b9306e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundTime: 0.5
+  roundTime: 2
   timeText: {fileID: 327904365}
 --- !u!1001 &445929616
 Prefab:
@@ -693,8 +693,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 81859281913918522, guid: 35021aa918fac6749823417753f4a2cd, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35021aa918fac6749823417753f4a2cd, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &510365630

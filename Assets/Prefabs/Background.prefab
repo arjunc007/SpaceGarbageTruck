@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 61873727156026490}
   - component: {fileID: 61345342861649020}
   - component: {fileID: 82029389708222068}
-  - component: {fileID: 81859281913918522}
+  - component: {fileID: 114392805315942522}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -257,13 +257,6 @@ CompositeCollider2D:
       - {x: -16, y: -9}
       - {x: 16, y: -9}
   m_VertexDistance: 0.0005
---- !u!81 &81859281913918522
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1807929394167618}
-  m_Enabled: 1
 --- !u!82 &82029389708222068
 AudioSource:
   m_ObjectHideFlags: 1
@@ -359,6 +352,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114392805315942522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1807929394167618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35672e05803031e43a1740162ce00702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212754383717175482
 SpriteRenderer:
   m_ObjectHideFlags: 1
